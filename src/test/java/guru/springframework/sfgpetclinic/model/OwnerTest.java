@@ -19,6 +19,8 @@ class OwnerTest {
                         () -> assertEquals("Rivas", owner.getCity())
                 )
         );
+
+        assertTrue(owner instanceof Owner);
     }
 
 }
