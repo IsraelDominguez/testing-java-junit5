@@ -27,4 +27,9 @@ class IndexControllerTest {
     void oupsHandler() {
         assertTrue("notimplemented".equalsIgnoreCase(controller.oupsHandler()), () -> "This is expensive");
     }
+
+    @Test
+    void oopsHandler() {
+        assertThrows(ValueNotFoundException.class, () -> controller.oopsHandler());
+    }
 }
