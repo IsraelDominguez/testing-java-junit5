@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 class IndexControllerTest {
 
@@ -31,5 +32,15 @@ class IndexControllerTest {
     @Test
     void oopsHandler() {
         assertThrows(ValueNotFoundException.class, () -> controller.oopsHandler());
+    }
+
+    @Test
+    void testAssumptionTrue() {
+        assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
+    }
+
+    @Test
+    void testAssumptionTrueIsTrue() {
+        assumeTrue("GURU".equalsIgnoreCase("GURU"));
     }
 }
