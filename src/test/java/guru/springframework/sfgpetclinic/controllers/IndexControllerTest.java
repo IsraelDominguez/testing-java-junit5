@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class IndexControllerTest {
 
@@ -25,6 +27,8 @@ class IndexControllerTest {
     void index() {
         assertEquals("index", controller.index());
         assertNotEquals("indexs", controller.index(), "Not pass");
+
+        assertThat(controller.index()).isEqualTo("index");
     }
 
     @DisplayName(value = "Test Raise Exception")
