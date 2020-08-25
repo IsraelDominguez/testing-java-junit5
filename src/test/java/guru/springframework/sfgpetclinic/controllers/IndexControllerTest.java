@@ -3,6 +3,10 @@ package guru.springframework.sfgpetclinic.controllers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
@@ -42,5 +46,23 @@ class IndexControllerTest {
     @Test
     void testAssumptionTrueIsTrue() {
         assumeTrue("GURU".equalsIgnoreCase("GURU"));
+    }
+
+    @EnabledOnOs(OS.MAC)
+    @Test
+    void testOnMac() {
+        System.out.println("On MAC");
+    }
+
+    @EnabledOnOs(OS.WINDOWS)
+    @Test
+    void testOnWin() {
+        System.out.println("On windows");
+    }
+
+    @EnabledOnJre(JRE.JAVA_11)
+    @Test
+    void testJava11() {
+        System.out.println("Java 11 installed");
     }
 }
